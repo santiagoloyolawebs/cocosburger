@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Cargando...</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header id="navbar">
+        <div class="checkerboard"></div>
+        <div class="nav-container" id="nav-container">
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-banner">
+        <video id="hero-video" autoplay muted playsinline>
+            <source src="assets/videobg.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <h1 id="hero-slogan">Cargando...</h1>
+    </section>
+
+    <div id="category-nav" class="category-nav"></div>
+
+    <main id="menu-container"></main>
+
+    <div class="checkerboard"></div>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <h3 id="footer-brand"></h3>
+            <p id="footer-location"></p>
+            <p id="footer-hours"></p>
+            <p style="margin-top: 15px;"><i class="fas fa-motorcycle"></i> <b>Envíos:</b> Consultar zona de cobertura</p>
+        </div>
+    </footer>
+
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Tu Pedido</h2>
+            <button onclick="toggleCart()" class="close-btn"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <div id="cart-items" class="cart-items"></div>
+
+        <div class="cart-footer">
+            <div class="cart-options">
+                <select id="delivery-method">
+                    <option value="Para retirar">Para retirar por local</option>
+                    <option value="Envío a domicilio">Envío a domicilio</option>
+                </select>
+
+                <input type="text" id="delivery-address" class="cart-input hidden" placeholder="Calle, número y localidad...">
+                <div id="address-error" class="error-msg hidden">⚠️ Por favor, ingresá tu dirección exacta.</div>
+
+                <select id="payment-method">
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Transferencia">Transferencia</option>
+                    <option value="Mercado Pago">Mercado Pago</option>
+                </select>
+            </div>
+
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="total-price">$0</span>
+            </div>
+            
+            <button onclick="sendOrder()" class="btn">
+                ENVIAR PEDIDO <i class="fab fa-whatsapp"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
+    <div id="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

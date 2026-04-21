@@ -169,7 +169,6 @@ function applyClientConfig() {
     document.title = config.negocio;
     document.getElementById('page-title').innerText = config.negocio;
     
-    // Asignación del slogan
     document.getElementById('hero-slogan').innerText = config.slogan;
     
     document.getElementById('footer-brand').innerText = config.negocio.toUpperCase();
@@ -282,6 +281,15 @@ function processAddToCart(cartItemId, name, price) {
     }
     updateUI();
     showToast(name, true);
+
+    // --- ANIMACIÓN DEL ICONO DEL CARRITO ---
+    const cartIcon = document.querySelector('.cart-icon');
+    // Quitamos la clase por si estaba en medio de una animación anterior
+    cartIcon.classList.remove('cart-bump');
+    // Forzamos un reflow (un pequeño "parpadeo" invisible) para que el navegador reinicie la animación
+    void cartIcon.offsetWidth; 
+    // Agregamos la clase de nuevo para disparar el salto
+    cartIcon.classList.add('cart-bump');
 }
 
 function updateQty(cartItemId, change) {
@@ -412,7 +420,6 @@ function scrollToSection(id) {
     });
 }
 
-// Control de bucle del video (0:01 a 0:17)
 function setupVideoLoop() {
     const video = document.getElementById('hero-video');
     if (video) {
